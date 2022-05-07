@@ -1,0 +1,75 @@
+$breakpoint-tablet: 768px;
+
+.leftbar {
+  flex: 3.5;
+  overflow-y: scroll;
+  height: calc(100vh - 70px);
+  position: sticky;
+  top: 70px;
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
+  }
+
+  button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 14px;
+  }
+}
+
+.leftbar_wrapper {
+  padding: 20px;
+}
+
+hr {
+  margin-top: 20px;
+  background-color: rgb(231, 231, 231);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(179, 179, 179);
+}
+
+.leftbar_items {
+  a {
+    width: inherit;
+  }
+}
+
+.leftbar_item {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 25px;
+  .leftbar_icon {
+    margin-right: 15px;
+    font-size: 24px;
+  }
+  p {
+    margin: 0;
+  }
+  img {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+}

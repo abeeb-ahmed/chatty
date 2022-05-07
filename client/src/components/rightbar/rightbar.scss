@@ -1,0 +1,62 @@
+$breakpoint-tablet: 768px;
+
+.rightbar {
+  padding: 20px;
+  flex: 4;
+  overflow-y: scroll;
+
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+
+.rightbar_top {
+  display: flex;
+  img {
+    height: 35px;
+    margin-right: 10px;
+  }
+  margin-bottom: 20px;
+}
+
+.rightbar_middle {
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+.rightbar_bottomTitle {
+  margin: 20px 0;
+}
+.rightbar_friendsList {
+  display: flex;
+  flex-direction: column;
+}
+
+li.rightbar_friend {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.rightbar_imgContainer {
+  position: relative;
+  margin-right: 10px;
+  img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .rightbar_online {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: limegreen;
+    top: -2px;
+    right: 5px;
+    border: 2px white solid;
+  }
+}

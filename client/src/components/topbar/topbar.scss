@@ -1,0 +1,240 @@
+$breakpoint-tablet: 768px;
+
+.topbar {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  position: sticky;
+
+  top: 0;
+  background-color: #1877f2;
+  justify-content: space-around;
+}
+
+.topbar_left {
+  display: flex;
+  padding-left: 30px;
+  align-items: center;
+  flex: 2;
+  @media (max-width: $breakpoint-tablet) {
+    padding-left: 20px;
+    flex: 1;
+  }
+  img.laptop {
+    height: 35px;
+    @media (max-width: $breakpoint-tablet) {
+      display: none;
+    }
+  }
+  img.mobile {
+    display: none;
+    @media (max-width: $breakpoint-tablet) {
+      height: 35px;
+      display: block;
+    }
+  }
+}
+
+.topbar_middle {
+  flex: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbar_search {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: 80%;
+
+  input {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.topbar_right {
+  flex: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  a {
+    color: white;
+    margin-right: 10px;
+  }
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+
+.topbar_rightNotification {
+  display: flex;
+  .topbar_righticon {
+    position: relative;
+    display: flex;
+    margin-right: 15px;
+    .topbar_icon {
+      color: white;
+    }
+    .topbar_notif {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      color: white;
+      background-color: red;
+      font-size: 11px;
+      padding: 1px 4px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.topbar__rightAvatar {
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 36px;
+    width: 36px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.topbar_toggler {
+  display: none;
+  @media (max-width: $breakpoint-tablet) {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    color: white;
+    z-index: 99;
+    .toggler_container {
+      .openIcon {
+        font-size: 30px !important;
+      }
+      .closeIcon {
+        font-size: 30px !important;
+      }
+    }
+  }
+}
+
+.mobile_menuContainer.open {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  transition: ease all 0.35s;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: #000000, $alpha: 0.2);
+}
+
+.mobile_menu {
+  display: none;
+  @media (max-width: $breakpoint-tablet) {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+    transition: ease all 0.35s;
+    background-color: white;
+    margin: 0;
+  }
+}
+
+.mobile_menu.open {
+  display: none;
+  @media (max-width: $breakpoint-tablet) {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    transform: translateX(30%);
+    transition: ease all 0.35s;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+
+.mobile_menuTop {
+  background-color: #1877f2;
+  width: 100%;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+}
+
+.mobile_menuAvatar {
+  img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+}
+
+.mobile_menuTopContent {
+  h4 {
+    margin-bottom: 20px;
+    color: white;
+  }
+  margin-top: 50px;
+}
+
+.mobile_menuBottom {
+  padding: 20px;
+  h4 {
+    margin-bottom: 10px;
+  }
+  .rightbar_friendsList {
+    margin-top: 20px;
+  }
+  ul.rightbar_friendsList {
+    li.rightbar_friend {
+      margin-bottom: 10px;
+      .rightbar_imgContainer {
+        img {
+          width: 36px;
+          height: 36px;
+        }
+        .rightbar_online {
+          right: -2px;
+        }
+      }
+    }
+  }
+  .leftbar_items {
+    margin-top: 20px;
+    .leftbar_item {
+      margin-bottom: 15px;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.mobile_menuLinks {
+  .topbar_rightLinks {
+    display: flex;
+    flex-direction: column;
+    a {
+      margin-bottom: 5px;
+    }
+  }
+}
