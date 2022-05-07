@@ -5,7 +5,7 @@ $breakpoint-tablet: 768px;
   width: 100%;
   display: flex;
   position: sticky;
-
+  z-index: 5;
   top: 0;
   background-color: #1877f2;
   justify-content: space-around;
@@ -129,13 +129,17 @@ $breakpoint-tablet: 768px;
 }
 
 .mobile_menuContainer.open {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  transition: ease all 0.35s;
-  top: 0;
-  left: 0;
-  background-color: rgba($color: #000000, $alpha: 0.2);
+  display: none;
+  @media (max-width: $breakpoint-tablet) {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    transition: ease all 0.35s;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+  }
 }
 
 .mobile_menu {
@@ -171,9 +175,12 @@ $breakpoint-tablet: 768px;
 .mobile_menuTop {
   background-color: #1877f2;
   width: 100%;
-  padding: 20px;
   position: sticky;
   top: 0;
+}
+
+.mobile_menuTopContainer {
+  padding: 20px;
 }
 
 .mobile_menuAvatar {
