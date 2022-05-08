@@ -33,3 +33,29 @@ $breakpoint-tablet: 768px;
   display: flex;
   flex-direction: column;
 }
+
+.profile_rightbarInfos {
+  margin-bottom: 20px;
+}
+
+.profile_rightbarInfo {
+  margin-bottom: 10px;
+  .profile_rightbarKey {
+    font-weight: 500;
+    color: #555;
+  }
+  .profile_rightbarValue {
+    font-weight: 300;
+    color: #555;
+  }
+}
+
+.profile_rightbarFollowings {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile_rightbarInfos h4,
+.rightbar_bottomTitle {
+  margin: 10px 0;
+}

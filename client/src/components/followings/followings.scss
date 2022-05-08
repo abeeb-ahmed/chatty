@@ -1,0 +1,16 @@
+.following {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px 10px 0;
+  cursor: pointer;
+  img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  p {
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
