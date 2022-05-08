@@ -1,0 +1,21 @@
+.closeFriends_container {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 25px;
+
+  p {
+    margin: 0;
+  }
+  img {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+}

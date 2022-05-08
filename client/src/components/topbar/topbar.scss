@@ -211,20 +211,7 @@ $breakpoint-tablet: 768px;
   .rightbar_friendsList {
     margin-top: 20px;
   }
-  ul.rightbar_friendsList {
-    li.rightbar_friend {
-      margin-bottom: 10px;
-      .rightbar_imgContainer {
-        img {
-          width: 36px;
-          height: 36px;
-        }
-        .rightbar_online {
-          right: -2px;
-        }
-      }
-    }
-  }
+
   .leftbar_items {
     margin-top: 20px;
     .leftbar_item {

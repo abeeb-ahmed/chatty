@@ -1,0 +1,38 @@
+$breakpoint-tablet: 768px;
+
+.online {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  @media (max-width: $breakpoint-tablet) {
+    margin-bottom: 10px;
+  }
+}
+
+.online_imgContainer {
+  position: relative;
+  margin-right: 10px;
+  img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    @media (max-width: $breakpoint-tablet) {
+      height: 35px;
+      width: 35px;
+    }
+  }
+  .online_badge {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: limegreen;
+    top: -2px;
+    right: 5px;
+    border: 2px white solid;
+    @media (max-width: $breakpoint-tablet) {
+      right: -2px;
+    }
+  }
+}
