@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./login.scss";
 import logo from "../../assets/images/logo-blue.png";
 
@@ -20,7 +22,9 @@ const Login = () => {
             </form>
             <div className="login_bottom">
               <p>Forgot Password?</p>
-              <button>Create a New Account</button>
+              <button>
+                <Link to="/register">Create a New Account</Link>
+              </button>
             </div>
           </div>
         </div>
