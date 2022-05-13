@@ -1,10 +1,21 @@
+import { useEffect, useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./post.scss";
 import likeLogo from "../../assets/images/like.png";
 import heartLogo from "../../assets/images/heart.png";
 
 const Post = () => {
+  const [liked, setLiked] = useState(0);
+
+  const handleLike = () => {
+    if (liked <= 0) {
+      setLiked(liked + 1);
+    } else {
+      setLiked(liked - 1);
+    }
+  };
   return (
     <div className="post">
       <div className="post_top">
@@ -36,9 +47,11 @@ const Post = () => {
         <div className="post_bottomLeft">
           <div className="post_bottomLeft_logos">
             <img src={likeLogo} alt="logo" />
-            <img src={heartLogo} alt="logo" />
+            <div onClick={handleLike}>
+              <img src={heartLogo} alt="logo" />
+            </div>
           </div>
-          <span>11 people like it</span>
+          <span>{liked} people like it</span>
         </div>
         <div className="post_bottomRight">
           <span>5 comments</span>
