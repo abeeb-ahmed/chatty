@@ -5,12 +5,11 @@ import { start, success, failure } from "./AuthSlice";
 export const login = async (user, dispatch, history) => {
   dispatch(start());
   try {
-    const newUser = await axios.post("http://localhost:5000/api/auth/login", {
+    const { data } = await axios.post("http://localhost:5000/api/auth/login", {
       email: user.email,
       password: user.password,
     });
-    console.log(newUser);
-    // dispatch(success(newUser));
+    dispatch(success(data));
     history.push("/");
   } catch (error) {
     dispatch(failure(error));

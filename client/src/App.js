@@ -14,7 +14,8 @@ import Profile from "./pages/profile/Profile";
 import Register from "./pages/register/Register";
 
 function App() {
-  const { user } = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.auth.user);
+  console.log(user);
   return (
     <div className="App">
       <Router>
@@ -29,7 +30,7 @@ function App() {
           <Route path="/register">
             {user ? <Redirect to="/" /> : <Register />}
           </Route>
-          <Route path="/profile/:id">
+          <Route path="/profile/:username">
             <Profile />
           </Route>
         </Switch>
