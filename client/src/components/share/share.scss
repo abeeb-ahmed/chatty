@@ -43,6 +43,11 @@ $breakpoint-tablet: 768px;
     border-radius: 5px;
     font-size: 14px;
   }
+  button:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+    opacity: 0.6;
+  }
 }
 
 .share_bottomIcons {
@@ -58,6 +63,7 @@ $breakpoint-tablet: 768px;
   display: flex;
   align-items: center;
   margin-right: 10px;
+  cursor: pointer;
 
   &:nth-child(2) {
     @media (max-width: $breakpoint-tablet) {
@@ -77,5 +83,28 @@ $breakpoint-tablet: 768px;
 
   p {
     margin-left: 5px;
+  }
+}
+
+.fileimage_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+  img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+  }
+  .fileimage_icon {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: black;
+    mix-blend-mode: multiply;
   }
 }

@@ -7,7 +7,7 @@ import Share from "../share/Share";
 import "./feed.scss";
 
 const Feed = () => {
-  const { user, isLoading, error } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   const [posts, setPosts] = useState([]);
   const userId = user._id;
 
@@ -29,9 +29,8 @@ const Feed = () => {
     <div className="feed">
       <Share />
       {posts.map((post) => {
-        return <Post id={post._id} post={post} />;
+        return <Post key={post._id} post={post} />;
       })}
-      {}
     </div>
   );
 };
