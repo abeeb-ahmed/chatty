@@ -15,7 +15,6 @@ import Register from "./pages/register/Register";
 
 function App() {
   const user = useSelector((state) => state.auth.user);
-  console.log(user);
   return (
     <div className="App">
       <Router>
