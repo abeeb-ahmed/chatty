@@ -28,7 +28,6 @@ const Login = () => {
           <div className="login_leftImg">
             <img src={logo} alt="" />
           </div>
-          <p>Stay connected to your friends and the world on Chatty</p>
         </div>
         <div className="login_right">
           <div className="login_rightContainer">

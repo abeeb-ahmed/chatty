@@ -19,6 +19,8 @@ $breakpoint-tablet: 768px;
   justify-content: space-between;
   @media (max-width: $breakpoint-tablet) {
     flex-direction: column;
+    width: 90%;
+    justify-content: center;
   }
 }
 
@@ -34,16 +36,27 @@ $breakpoint-tablet: 768px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (max-width: $breakpoint-tablet) {
+    align-items: center;
+    margin-bottom: 30px;
+  }
 
   .login_leftImg {
     margin-bottom: 20px;
     img {
       height: 100px;
+      @media (max-width: $breakpoint-tablet) {
+        height: 70px;
+      }
     }
   }
   p {
     font-size: 22px;
     max-width: 90%;
+    @media (max-width: $breakpoint-tablet) {
+      font-size: 18px;
+      text-align: center;
+    }
   }
 }
 
@@ -69,6 +82,9 @@ $breakpoint-tablet: 768px;
     border: lightgray solid 2px;
     margin-bottom: 20px;
     border-radius: 8px;
+    @media (max-width: $breakpoint-tablet) {
+      padding: 8px 15px;
+    }
     &:focus {
       border: #1877f2 2px solid;
       outline: none;
@@ -82,6 +98,10 @@ $breakpoint-tablet: 768px;
     color: white;
     font-size: 18px;
     cursor: pointer;
+    @media (max-width: $breakpoint-tablet) {
+      padding: 8px 15px;
+      font-size: 16px;
+    }
   }
 }
 
@@ -106,5 +126,10 @@ $breakpoint-tablet: 768px;
     color: white;
     font-size: 18px;
     cursor: pointer;
+    @media (max-width: $breakpoint-tablet) {
+      padding: 8px 15px;
+      width: 90%;
+      font-size: 16px;
+    }
   }
 }
