@@ -41,8 +41,10 @@ const Topbar = () => {
   return (
     <div className="topbar">
       <div className="topbar_left">
-        <img className="laptop" src={logo} alt="" />
-        <img className="mobile" src={logoMobile} alt="" />
+        <Link to="/">
+          <img className="laptop" src={logo} alt="" />
+          <img className="mobile" src={logoMobile} alt="" />
+        </Link>
       </div>
       <div className="topbar_middle">
         <div className="topbar_search">

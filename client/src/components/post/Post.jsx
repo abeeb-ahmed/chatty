@@ -67,7 +67,7 @@ const Post = ({ post }) => {
         <div className="post_bottomLeft">
           <div className="post_bottomLeft_logos">
             <img src={likeLogo} alt="" />
-            <div onClick={handleLike}>
+            <div onClick={handleLike} className="post_icons">
               <img src={heartLogo} alt="" />
             </div>
           </div>

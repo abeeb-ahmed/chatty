@@ -48,7 +48,7 @@ const Feed = ({ username }) => {
   };
   return (
     <div className="feed">
-      {(!username || username === user?.username) && <Share />}
+      {(!username || username === user.username) && <Share />}
       {isLoading ? <Spinner /> : <RealFeed />}
     </div>
   );
