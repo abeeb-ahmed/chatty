@@ -5,7 +5,7 @@ $breakpoint-tablet: 768px;
   -webkit-box-shadow: 1px 3px 10px 4px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 3px 10px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  margin-top: 30px;
+  margin-bottom: 30px;
 
   @media (max-width: $breakpoint-tablet) {
     padding: 15px;

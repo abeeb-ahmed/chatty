@@ -1,3 +1,5 @@
+$breakpoint-tablet: 768px;
+
 .profile {
   display: flex;
   height: 100%;
@@ -5,6 +7,19 @@
 
 .profile_right {
   flex: 8.5;
+}
+
+.profile_share {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile_shareContainer {
+  width: 70%;
+  @media (max-width: $breakpoint-tablet) {
+    width: 100%;
+  }
 }
 
 .profile_rightTop {
