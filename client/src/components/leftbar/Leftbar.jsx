@@ -19,7 +19,7 @@ const Leftbar = () => {
   const dispatch = useDispatch();
   const handleSignout = () => {
     dispatch(signOut());
-    history.pushState("/login");
+    history.push("/login");
   };
   return (
     <div className="leftbar">

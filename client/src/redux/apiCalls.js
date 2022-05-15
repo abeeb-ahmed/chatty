@@ -13,8 +13,7 @@ export const login = async (user, dispatch, history) => {
     history.push("/");
   } catch (error) {
     dispatch(failure(error));
-    console.log(error);
-    alert(error.message);
+    alert(error.response.data);
   }
 };
 
@@ -29,6 +28,6 @@ export const register = async (user, history) => {
     history.push("/login");
   } catch (error) {
     console.log(error);
-    alert(error.message);
+    alert(error.response.data);
   }
 };
