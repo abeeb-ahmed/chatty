@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import moment from "moment";
+import { useSelector } from "react-redux";
 
 import "./post.scss";
 import likeLogo from "../../assets/images/like.png";
@@ -9,24 +10,34 @@ import avatar from "../../assets/images/avatar.png";
 import heartLogo from "../../assets/images/heart.png";
 
 const Post = ({ post }) => {
-  const [liked, setLiked] = useState(0);
+  const currentUser = useSelector((state) => state.auth.user);
+  const [liked, setLiked] = useState(post.likes.length);
+  const [isLiked, setIsLiked] = useState(false);
   const [postUser, setPostUser] = useState();
 
-  const handleLike = () => {
-    if (liked <= 0) {
-      setLiked(liked + 1);
-    } else {
+  useEffect(() => {
+    setIsLiked(post?.likes.includes(currentUser?._id));
+  }, [currentUser._id, post.likes]);
+
+  const handleLike = async () => {
+    try {
+      await axios.put(`http://localhost:5000/api/posts/${post._id}/like`);
+    } catch (error) {}
+    if (isLiked) {
       setLiked(liked - 1);
+    } else {
+      setLiked(liked + 1);
     }
+    setIsLiked(!isLiked);
   };
-  const userId = post.userId;
+  const userId = post?.userId;
 
   useEffect(() => {
     const getUserInfo = async (userId) => {
       const user = await axios.get(
         `http://localhost:5000/api/users?userId=${userId}`
       );
-      setPostUser(user.data);
+      setPostUser(user?.data);
     };
     getUserInfo(userId);
   }, [userId]);

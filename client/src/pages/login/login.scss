@@ -1,3 +1,5 @@
+$breakpoint-tablet: 768px;
+
 .login {
   background-color: #f0f2f5;
   height: 100vh;
@@ -5,6 +7,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+  }
 }
 
 .login_container {
@@ -12,11 +17,17 @@
   height: 70%;
   display: flex;
   justify-content: space-between;
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+  }
 }
 
 .login_left,
 .login_right {
   flex: 1;
+  @media (max-width: $breakpoint-tablet) {
+    flex: none;
+  }
 }
 
 .login_left {

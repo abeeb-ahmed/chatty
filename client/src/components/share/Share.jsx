@@ -31,7 +31,6 @@ const Share = () => {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
           setPerc(progress);
           switch (snapshot.state) {
             case "paused":
@@ -39,6 +38,8 @@ const Share = () => {
               break;
             case "running":
               console.log("Upload is running");
+              break;
+            default:
               break;
           }
         },
@@ -48,9 +49,7 @@ const Share = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log("File available at", downloadURL);
             setImgurl(downloadURL);
-            console.log(downloadURL);
           });
         }
       );
@@ -83,7 +82,6 @@ const Share = () => {
       sendPost(userId, desc.current.value, imgurl);
     }
   };
-  console.log(file);
 
   // Remove image upload
   const removeFile = () => {

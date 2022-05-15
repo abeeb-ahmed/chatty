@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import RssFeedIcon from "@mui/icons-material/RssFeed";
 import ChatIcon from "@mui/icons-material/Chat";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
@@ -9,10 +11,16 @@ import EventIcon from "@mui/icons-material/Event";
 import SchoolIcon from "@mui/icons-material/School";
 
 import "./leftbar.scss";
-import { Link } from "react-router-dom";
 import CloseFriend from "../closeFriend/CloseFriend";
+import { signOut } from "../../redux/AuthSlice";
 
 const Leftbar = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const handleSignout = () => {
+    dispatch(signOut());
+    history.pushState("/login");
+  };
   return (
     <div className="leftbar">
       <div className="leftbar_wrapper">
@@ -71,7 +79,7 @@ const Leftbar = () => {
               <p>Courses</p>
             </div>
           </Link>
-          <button>Show More</button>
+          <button onClick={handleSignout}>Log Out</button>
         </div>
         <hr />
         <CloseFriend friendName="Abeeb Ahmed" />

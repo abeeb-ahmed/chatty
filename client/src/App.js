@@ -19,18 +19,16 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact>
-            <Home />
+            {!user ? <Redirect to="/login" /> : <Home />}
           </Route>
-          <Route path="/login">
-            {user ? <Redirect to="/" /> : <Login />}
-            <Login />
-          </Route>
+          <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
           <Route path="/register">
             {user ? <Redirect to="/" /> : <Register />}
           </Route>
           <Route path="/profile/:username">
-            <Profile />
+            {!user ? <Redirect to="/login" /> : <Profile />}
           </Route>
+          <Route path="*">{!user ? <Redirect to="/login" /> : <Home />}</Route>
         </Switch>
       </Router>
     </div>
