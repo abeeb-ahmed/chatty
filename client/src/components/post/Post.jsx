@@ -3,6 +3,8 @@ import axios from "axios";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import moment from "moment";
 import { useSelector } from "react-redux";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 import "./post.scss";
 import likeLogo from "../../assets/images/like.png";
@@ -59,7 +61,7 @@ const Post = ({ post }) => {
       </div>
       <div className="post_middle">
         <p>{post?.desc}</p>
-        {post?.img && <img src={post.img} alt="" />}
+        {post?.img && <LazyLoadImage src={post?.img} alt="" effect="blur" />}
       </div>
       <div className="post_bottom">
         <div className="post_bottomLeft">

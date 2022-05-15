@@ -20,7 +20,6 @@ const Rightbar = ({ profile }) => {
     };
     getFriends();
   }, [user]);
-
   const HomeRightbar = () => {
     return (
       <>
