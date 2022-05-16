@@ -69,4 +69,8 @@ $breakpoint-tablet: 768px;
 
 .profile_rightBottom {
   display: flex;
+  flex-direction: row-reverse;
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+  }
 }

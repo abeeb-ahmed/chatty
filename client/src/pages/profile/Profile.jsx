@@ -48,8 +48,8 @@ const Profile = () => {
             </div>
           </div>
           <div className="profile_rightBottom">
-            <Feed username={username} />
             <Rightbar profile={user} />
+            <Feed username={username} />
           </div>
         </div>
       </div>

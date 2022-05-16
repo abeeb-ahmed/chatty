@@ -12,7 +12,7 @@ import avatar from "../../assets/images/avatar.png";
 import { useParams } from "react-router-dom";
 import { followUser, unfollowUser } from "../../redux/AuthSlice";
 
-const Rightbar = ({ profile }) => {
+const Rightbar = ({ profile, home }) => {
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ const Rightbar = ({ profile }) => {
   const { username } = useParams();
   const userId = user?._id;
   const [isFollowing, setIsFollowing] = useState(
-    user.followings.includes(profile?._id)
+    user.followings?.includes(profile?._id)
   );
 
   useEffect(() => {
@@ -31,7 +31,6 @@ const Rightbar = ({ profile }) => {
       );
       setFriends(res.data);
     };
-
     getFriends();
   }, [userId]);
 
@@ -98,15 +97,21 @@ const Rightbar = ({ profile }) => {
         <div className="profile_rightbarInfos">
           <div className="profile_rightbarInfo">
             <span className="profile_rightbarKey">City: </span>
-            <span className="profile_rightbarValue">Lagos</span>
+            <span className="profile_rightbarValue">{user.city}</span>
           </div>
           <div className="profile_rightbarInfo">
             <span className="profile_rightbarKey">From: </span>
-            <span className="profile_rightbarValue">Lagos</span>
+            <span className="profile_rightbarValue">{user.city}</span>
           </div>
           <div className="profile_rightbarInfo">
             <span className="profile_rightbarKey">Relationship: </span>
-            <span className="profile_rightbarValue">Single</span>
+            <span className="profile_rightbarValue">
+              {user.relationship === 1
+                ? "Single"
+                : user.relationship === 2
+                ? "Married"
+                : "-"}
+            </span>
           </div>
         </div>
         <h4 className="rightbar_bottomTitle">Friends</h4>
@@ -128,7 +133,7 @@ const Rightbar = ({ profile }) => {
   };
 
   return (
-    <div className="rightbar">
+    <div className={`rightbar ${home ? "rightbar_mobile" : ""}`}>
       <div className="rightbar_wrapper">
         {profile ? <ProfileRightbar /> : <HomeRightbar />}
       </div>
