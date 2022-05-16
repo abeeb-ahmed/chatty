@@ -1,25 +1,65 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 import "./rightbar.scss";
 import boxIcon from "../../assets/images/gift-box.png";
 import Online from "../online/Online";
 import Followings from "../followings/Followings";
 import avatar from "../../assets/images/avatar.png";
+import { useParams } from "react-router-dom";
+import { followUser, unfollowUser } from "../../redux/AuthSlice";
 
 const Rightbar = ({ profile }) => {
   const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+
   const [friends, setFriends] = useState([]);
+
+  const { username } = useParams();
+  const userId = user?._id;
+  const [isFollowing, setIsFollowing] = useState(
+    user.followings.includes(profile?._id)
+  );
+
   useEffect(() => {
     const getFriends = async () => {
       const res = await axios.get(
-        `http://localhost:5000/api/users/friends/${user._id}`
+        `http://localhost:5000/api/users/friends/${userId}`
       );
       setFriends(res.data);
     };
+
     getFriends();
-  }, [user]);
+  }, [userId]);
+
+  const handleClick = async () => {
+    try {
+      if (isFollowing) {
+        await axios.put(
+          `http://localhost:5000/api/users/${profile._id}/unfollow`,
+          {
+            userId: userId,
+          }
+        );
+        dispatch(unfollowUser(profile._id));
+      } else {
+        await axios.put(
+          `http://localhost:5000/api/users/${profile._id}/follow`,
+          {
+            userId: userId,
+          }
+        );
+        dispatch(followUser(profile._id));
+      }
+      setIsFollowing(!isFollowing);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const HomeRightbar = () => {
     return (
       <>
@@ -48,6 +88,12 @@ const Rightbar = ({ profile }) => {
   const ProfileRightbar = () => {
     return (
       <>
+        {username !== user.username && (
+          <button className="follow_button" onClick={handleClick}>
+            {isFollowing ? "Unfollow" : "Follow"}
+            {isFollowing ? <RemoveIcon /> : <AddIcon />}
+          </button>
+        )}
         <h4 className="rightbar_bottomTitle">Profile Information</h4>
         <div className="profile_rightbarInfos">
           <div className="profile_rightbarInfo">
@@ -65,11 +111,11 @@ const Rightbar = ({ profile }) => {
         </div>
         <h4 className="rightbar_bottomTitle">Friends</h4>
         <div className="profile_rightbarFollowings">
-          {friends.map((friend) => {
+          {friends.map((friend, index) => {
             return (
               <Followings
-                key={friend._id}
-                followingName={friend?.username}
+                key={index}
+                followingName={friend.username}
                 followingImg={
                   friend?.profilePicture ? friend.profilePicture : avatar
                 }

@@ -11,7 +11,7 @@ import avatar from "../../assets/images/avatar.png";
 import coverImg from "../../assets/images/cover.png";
 
 const Profile = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const username = useParams().username;
   useEffect(() => {
     const fetchUser = async () => {
@@ -49,7 +49,7 @@ const Profile = () => {
           </div>
           <div className="profile_rightBottom">
             <Feed username={username} />
-            <Rightbar profile />
+            <Rightbar profile={user} />
           </div>
         </div>
       </div>

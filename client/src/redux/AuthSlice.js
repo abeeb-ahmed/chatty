@@ -28,8 +28,27 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.error = null;
     },
+    followUser: (state, action) => {
+      state.user = {
+        ...state.user,
+        followings: [...state.user.followings, action.payload],
+      };
+      state.isLoading = false;
+      state.error = null;
+    },
+    unfollowUser: (state, action) => {
+      state.user = {
+        ...state.user,
+        followings: state.user.followings.filter(
+          (following) => following !== action.payload
+        ),
+      };
+      state.isLoading = false;
+      state.error = null;
+    },
   },
 });
 
-export const { start, success, failure, signOut } = authSlice.actions;
+export const { start, success, failure, signOut, followUser, unfollowUser } =
+  authSlice.actions;
 export default authSlice.reducer;
