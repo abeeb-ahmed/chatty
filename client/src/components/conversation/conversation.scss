@@ -1,0 +1,23 @@
+.conversation {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(240, 238, 238);
+  }
+
+  img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 18px;
+  }
+}

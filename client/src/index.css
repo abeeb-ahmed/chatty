@@ -36,3 +36,7 @@ p,
 h4 {
   margin: 0;
 }
+
+p {
+  line-height: 1.4;
+}

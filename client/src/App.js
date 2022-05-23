@@ -11,6 +11,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
 import Register from "./pages/register/Register";
+import Messenger from "./pages/messenger/Messenger";
 
 function App() {
   const user = useSelector((state) => state.auth.user);
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/profile/:username">
             {!user ? <Redirect to="/login" /> : <Profile />}
+          </Route>
+          <Route path="/messenger">
+            {!user ? <Redirect to="/login" /> : <Messenger />}
           </Route>
           <Route path="*">{!user ? <Redirect to="/login" /> : <Home />}</Route>
         </Switch>
