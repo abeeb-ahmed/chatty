@@ -1,6 +1,7 @@
 import Conversation from "../../components/conversation/Conversation";
 import Message from "../../components/message/Message";
 import Topbar from "../../components/topbar/Topbar";
+import Online from "../../components/online/Online";
 import "./messenger.scss";
 
 const Messenger = () => {
@@ -24,11 +25,14 @@ const Messenger = () => {
             <div className="messenger_middleInput">
               <textarea placeholder="Enter message" />
               <div>
-                <button className="btn">Submit</button>
+                <button className="btn">Send</button>
               </div>
             </div>
           </div>
-          <div className="messenger_right">right</div>
+          <div className="messenger_right">
+            <h4>Online Friends</h4>
+            <Online />
+          </div>
         </div>
       </div>
     </>
