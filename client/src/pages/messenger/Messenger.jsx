@@ -44,14 +44,22 @@ const Messenger = () => {
     getMessages();
   }, [currentConvo]);
 
-  // const handleSend = (e) => {
-  //   e.preventDefault();
-  //   const sendMessage = async () => {
-  //     try {
-  //       await axios.post("");
-  //     } catch (error) {}
-  //   };
-  // };
+  const handleSend = async (e) => {
+    if (newMessage === "") {
+      return;
+    } else {
+      try {
+        await axios.post("http://localhost:5000/api/messages", {
+          conversationId: currentConvo?._id,
+          text: newMessage,
+          senderId: userId,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+      setNewMessage("");
+    }
+  };
 
   return (
     <>
@@ -92,7 +100,9 @@ const Messenger = () => {
                 onChange={(e) => setNewMessage(e.target.value)}
               />
               <div>
-                <button className="btn">Send</button>
+                <button className="btn" onClick={handleSend}>
+                  Send
+                </button>
               </div>
             </div>
           </div>
