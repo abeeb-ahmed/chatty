@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Message = require("../models/Message");
 
 // Get
-router("/:conversationId", async (req, res) => {
+router.get("/:conversationId", async (req, res) => {
   try {
     const message = await Message.find({
       conversationId: req.params.conversationId,
@@ -14,9 +14,9 @@ router("/:conversationId", async (req, res) => {
 });
 
 // post
-router.post("/", async (res, req) => {
-  const newMessage = await new Message(req.body);
+router.post("/", async (req, res) => {
   try {
+    const newMessage = await new Message(req.body);
     const savedMessage = newMessage.save();
     res.status(200).json(savedMessage);
   } catch (error) {

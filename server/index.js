@@ -9,6 +9,7 @@ const authRoute = require("./routes/auth");
 const usersRoute = require("./routes/users");
 const postsRoute = require("./routes/posts");
 const conversationsRoute = require("./routes/conversation");
+const messagesRoute = require("./routes/message");
 
 try {
   mongoose.connect(
@@ -30,7 +31,8 @@ app.use(morgan("tiny"));
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/posts", postsRoute);
-app.use("/api/conversation", conversationsRoute);
+app.use("/api/conversations", conversationsRoute);
+app.use("/api/messages", messagesRoute);
 
 app.listen(5000, () => {
   console.log(`Connected on port 5000`);
